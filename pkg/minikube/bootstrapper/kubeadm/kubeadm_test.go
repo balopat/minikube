@@ -36,6 +36,7 @@ func TestGenerateConfig(t *testing.T) {
 				NodeIP:            "192.168.1.100",
 				KubernetesVersion: "v1.10.0",
 				NodeName:          "minikube",
+				ServiceCIDR:       "10.112.0.0/12",
 			},
 			expectedCfg: `apiVersion: kubeadm.k8s.io/v1alpha1
 kind: MasterConfiguration
@@ -46,7 +47,7 @@ api:
 kubernetesVersion: v1.10.0
 certificatesDir: /var/lib/localkube/certs/
 networking:
-  serviceSubnet: 10.96.0.0/12
+  serviceSubnet: 10.112.0.0/12
 etcd:
   dataDir: /data/minikube
 nodeName: minikube
